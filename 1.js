@@ -1,6 +1,16 @@
-console.log(__dirname);
+var http = require('http')
+var fs = require('fs')
 
-setInterval(()=>{
-    console.log('hello world');
-},1000)
-
+http
+    .createServer(function(req,res){
+        //const text = fs.readFileSync('./content/big.txt', 'utf8')
+        //res.end(text)
+        const fileStream = fs.createReadStream('./content/big.txt', 'utf8')
+        fileStream.on('open', ()=>{
+            fileStream.pipe(res)
+        })
+        fileStream.on('error', (err)=>{
+            res.end(err)
+        })
+    })
+    .listen(5000)
