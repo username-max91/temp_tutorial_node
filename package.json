@@ -4,8 +4,8 @@
   "description": "default",
   "main": "1.js",
   "scripts": {
-    "start": "node 2-modules.js",
-    "dev": "nodemon 2-modules.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "tutorial"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
